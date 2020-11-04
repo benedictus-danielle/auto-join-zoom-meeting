@@ -29,19 +29,19 @@ Before running this script please make sure that:
 
 
 This script takes 2 arguments to work
-* -dt or --datetime
+* -d or --datetime
 * -u or --url
 
 Usage
 ---
-The -dt argument takes date and time with specific format
+The -d argument takes date and time with specific format
 ```
 Format: [day of month]-[month]-[full year]#[hours]:[minutes]:[seconds]
 ```
 The -u argument takes a valid zoom url
 
 ```
-python3 main.py -dt 4-11-2020#23:59:59 -u https://zoom.us
+python3 main.py -d 4-11-2020#23:59:59 -u https://zoom.us
 ```
 Screenshots
 ---

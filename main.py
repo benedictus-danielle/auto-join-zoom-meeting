@@ -20,7 +20,7 @@ from urllib.parse import urlparse
 def print_help(message = ""):
     if message != "":
         print("Error: {}".format(message))
-    print("python3 main.py -dt [day of month]-[month]-[year]#[hour]:[minute]:[second] -u [valid zoom meeting url]")
+    print("python3 main.py -d [day of month]-[month]-[year]#[hour]:[minute]:[second] -u [valid zoom meeting url]")
     exit(0)
 
 load_dotenv()
@@ -31,7 +31,7 @@ if not os.getenv("USER_DATA_DIR"):
 
 now = time.time()
 
-opts, _ = getopt.getopt(sys.argv[1:], "dt:hu:", ["datetime=", "help=","url="])
+opts, _ = getopt.getopt(sys.argv[1:], "d:hu:", ["datetime=", "help=","url="])
 
 target = -1
 url = ""
@@ -39,7 +39,7 @@ url = ""
 for k, v in opts:
     if k == "-h" or k == "--help":
         print_help()
-    if k == "-dt" or k == "--datetime":
+    if k == "-d" or k == "--datetime":
         try:
             target = datetime.strptime(v, "%d-%m-%Y#%H:%M:%S").timestamp()
         except ValueError as e:
@@ -57,7 +57,7 @@ for k, v in opts:
             
 
 if target == -1:
-    print_help("-dt or --datetime argument is required")
+    print_help("-d or --datetime argument is required")
 
 if url == "":
     print_help("-u or --url argument is required")
